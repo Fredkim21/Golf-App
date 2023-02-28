@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Oswald&display=swap');
+
+html, 
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: 'Comfortaa', 'Oswald', sans-serif;
+}
+
+body {
+  background: grey;
+}
+
+.app {
+  display: flex;
+  position: relative;
+}

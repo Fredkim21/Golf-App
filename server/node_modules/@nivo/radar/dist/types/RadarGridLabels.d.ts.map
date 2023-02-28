@@ -1,0 +1,1 @@
+{"version":3,"file":"RadarGridLabels.d.ts","sourceRoot":"","sources":["../../src/RadarGridLabels.tsx"],"names":[],"mappings":";AAGA,OAAO,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAA;AAU5C,UAAU,oBAAoB;IAC1B,MAAM,EAAE,MAAM,CAAA;IACd,MAAM,EAAE,MAAM,EAAE,CAAA;IAChB,OAAO,EAAE,MAAM,EAAE,CAAA;IACjB,KAAK,EAAE,kBAAkB,CAAA;IACzB,WAAW,EAAE,MAAM,CAAA;CACtB;AAED,eAAO,MAAM,eAAe,qEAMzB,oBAAoB,gBAyCtB,CAAA"}
