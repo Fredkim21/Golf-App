@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const DrillsPage = () => {
   const { id } = useParams();
@@ -7,13 +7,17 @@ const DrillsPage = () => {
 
   useEffect(() => {
     const fetchDrill = async () => {
-      const response = await fetch();
-      const data = await response.json();
-      setDrill(data);
-    }
+      try {
+        const response = await fetch(`/drills/${id}`);
+        const data = await response.json();
+        setDrill(data);
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
 
     fetchDrill();
-  }, []);
+  }, [id]);
 
   if (!drill) {
     return <div>Loading...</div>;
@@ -21,13 +25,12 @@ const DrillsPage = () => {
 
   return (
     <div>
-      <h1>{drill.title}</h1>
-      <p>{drill.description}</p>
+      <h1>{drill.name}</h1>
       <p>Category: {drill.category}</p>
       <p>Skill Level: {drill.skillLevel}</p>
-      <p>Instructions: {drill.instructions}</p>
+      <p>{drill.drill_info}</p>
     </div>
   );
-}
+};
 
 export default DrillsPage;

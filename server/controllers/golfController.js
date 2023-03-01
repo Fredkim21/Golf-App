@@ -12,7 +12,7 @@ golfController.getAllDrills = async () => {
   }
 };
 
-const getSingleDrill = async (drillId) => {
+golfController.getSingleDrill = async (drillId) => {
   try {
     const result = await query('SELECT * FROM drills WHERE drill_id = $1', [drillId]);
     return result.rows[0];
