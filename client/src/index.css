@@ -10,10 +10,10 @@ body,
 }
 
 body {
-  background: grey;
+  background: lightgrey;
 }
 
 .app {
   display: flex;
-  position: relative;
+  justify-content: center;
 }
