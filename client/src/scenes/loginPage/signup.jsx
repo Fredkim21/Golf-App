@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import bcrypt from 'bcrypt';
+import axios from 'axios';
+
 
 function SignUpPage() {
   const [username, setUsername] = useState("");
@@ -18,12 +21,26 @@ function SignUpPage() {
     setEmail(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    // hash password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
     // send data to backend to create new user
     console.log("Username:", username);
-    console.log("Password:", password);
+    console.log("Password:", hashedPassword);
     console.log("Email:", email);
+    axios.post('/api/users', {
+      username,
+      password: hashedPassword,
+      email
+    })
+    .then(response => {
+      console.log(response.data);
+    })
+    .catch(error => {
+      console.error(error);
+    });
   };
 
   return (

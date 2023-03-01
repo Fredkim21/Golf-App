@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
   };
 
   const handlePasswordChange = (e) => {
@@ -15,7 +16,7 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // send data to backend to verify
-    console.log("Email:", email);
+    console.log("Username:", username);
     console.log("Password:", password);
   };
 
@@ -23,12 +24,12 @@ function LoginPage() {
     <div>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="username">Username</label>
         <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
+          type="username"
+          id="username"
+          value={username}
+          onChange={handleUsernameChange}
         />
 
         <label htmlFor="password">Password</label>
@@ -41,6 +42,7 @@ function LoginPage() {
 
         <button type="submit">Login</button>
       </form>
+      <Link to="/signup">Sign up</Link>
     </div>
   );
 }

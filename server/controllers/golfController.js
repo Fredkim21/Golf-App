@@ -47,4 +47,24 @@ golfController.updateDrill = async (drillId, updatedDrill) => {
   }
 };
 
+
+const userController = {};
+
+userController.createUser = async (req, res) => {
+  try {
+    const { username, password, email } = req.body;
+    // insert new user into database
+    const insertUserText = 'INSERT INTO users_credentials (user_id, username, password) VALUES (DEFAULT, $1, $2) RETURNING *';
+    const { rows } = await query(insertUserText, [username, password]);
+    // insert user email into database
+    const userId = rows[0].user_id;
+    const insertEmailText = 'INSERT INTO users (user_id, email) VALUES ($1, $2)';
+    await query(insertEmailText, [userId, email]);
+    res.status(201).send(rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error creating user');
+  }
+};
+
 module.exports = golfController;
