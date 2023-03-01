@@ -7,7 +7,7 @@ const SkillsPage = () => {
   useEffect(() => {
     // fetch drills data from SQL database
     const fetchDrills = async () => {
-      const response = await fetch('https://api.example.com/drills');
+      const response = await fetch('/drill');
       const data = await response.json();
       setDrills(data);
     };
