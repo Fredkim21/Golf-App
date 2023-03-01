@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./scenes/homePage";
 import LoginPage from "./scenes/loginPage/login";
 import ProfilePage from "./scenes/profilePage/profile";
@@ -9,11 +9,53 @@ import SkillsPage from "./scenes/skillsPage/skill";
 function App() {
   return (
     <Router>
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/login" component={LoginPage} />
-      <Route exact path="/profile" component={ProfilePage} />
-      <Route exact path="/skills" component={SkillsPage} />
-      <Route exact path="/drills" component={DrillsPage} />
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <div className="app">
+              <HomePage />
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/login"
+          element={
+            <div className="app">
+              <LoginPage />
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/profile"
+          element={
+            <div className="app">
+              <ProfilePage />
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/skills"
+          element={
+            <div className="app">
+              <SkillsPage />
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/drills"
+          element={
+            <div className="app">
+              <DrillsPage />
+            </div>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

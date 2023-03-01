@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,  } from "react";
 import { ResponsiveRadar } from "@nivo/radar";
 
 const ProfilePage = ({ profileId }) => {
@@ -41,6 +41,7 @@ const ProfilePage = ({ profileId }) => {
       { category: 'Bunker', value: 30 },
     ];
 
+
   return (
   <div>
     <h1>ProfilePage</h1>
@@ -51,6 +52,7 @@ const ProfilePage = ({ profileId }) => {
       maxValue={100}
       gridShape="linear"
       colors={{ scheme: 'dark2' }}
+      gridLabelOffset={36}
     />
   </div>
   )
